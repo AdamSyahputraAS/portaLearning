@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PortaLearning">
         <activity
+            android:name=".Add_Content_Activity"
+            android:exported="false" />
+        <activity
             android:name=".register_activity"
             android:exported="false" />
         <activity
@@ -34,7 +37,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true"></activity>
+            android:exported="true" />
     </application>
 
 </manifest>
