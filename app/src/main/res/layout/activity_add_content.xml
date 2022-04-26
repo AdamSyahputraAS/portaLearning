@@ -48,7 +48,7 @@
                 android:ems="10"
                 android:inputType="textPersonName"
                 android:layout_margin="10dp"
-                android:background="@color/white"/>
+                android:background="@color/white" />
 
 
             <LinearLayout
