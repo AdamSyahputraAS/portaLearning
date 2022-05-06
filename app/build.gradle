@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'kotlin-android-extensions'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -44,5 +45,9 @@ dependencies {
 
 }
 dependencies {
+
+
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.3'
+    implementation 'com.google.firebase:firebase-analytics-ktx:20.1.2'
     implementation("androidx.cardview:cardview:1.0.0")
 }
