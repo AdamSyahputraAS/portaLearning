@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "323983967590",
+    "project_id": "portalearning-b72fb",
+    "storage_bucket": "portalearning-b72fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:323983967590:android:efd6b81feafc4e01f274a7",
+        "android_client_info": {
+          "package_name": "com.adl.portalearning"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "323983967590-7e4bifghqmrh6hh9bsde6heek9687hjp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDf0xyLnWl16CQqSqJi4_dJimmu1-JdtPc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "323983967590-7e4bifghqmrh6hh9bsde6heek9687hjp.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

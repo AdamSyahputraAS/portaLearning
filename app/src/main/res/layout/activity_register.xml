@@ -39,7 +39,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
 
             <TextView
                 android:id="@+id/textView6"
@@ -54,7 +55,30 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:ems="10"
+                android:inputType="textPersonName"
+                android:minHeight="48dp" />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Re-Type Password" />
+
+            <EditText
+                android:id="@+id/inputRegisterRePassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:ems="10"
                 android:inputType="textPersonName" />
+
+            <TextView
+                android:id="@+id/textRegisterErrorMessage"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="" />
 
             <Button
                 android:id="@+id/btnSaveRegister"
