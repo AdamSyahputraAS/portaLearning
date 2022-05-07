@@ -51,6 +51,13 @@
                 android:background="@color/white" />
 
 
+            <VideoView
+                android:id="@+id/videoView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -81,7 +88,7 @@
                 </LinearLayout>
 
                 <ImageButton
-                    android:id="@+id/imageButton"
+                    android:id="@+id/btnUploadPickVideo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     app:srcCompat="@android:drawable/ic_input_add"
