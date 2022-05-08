@@ -8,6 +8,7 @@ class ModelVideo {
     var description:String? = null
     var timestamp:String? = null
     var videoUri:String? = null
+    var imageUri:String? = null
 
     //constructor
 
@@ -20,13 +21,15 @@ class ModelVideo {
         title: String?,
         description: String?,
         timestamp: String?,
-        videoUri: String?
+        videoUri: String?,
+        imageUri: String?
     ) {
         this.id = id
         this.title = title
         this.description = description
         this.timestamp = timestamp
         this.videoUri = videoUri
+        this.imageUri = imageUri
     }
 
 

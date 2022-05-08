@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.adl.portalearning">
-
-<!--    required permissions-->
-    <uses-permission android:name="android.permission.CAMERA"/>
-        <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-            <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- required permissions -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -15,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PortaLearning">
         <activity
+            android:name=".VideoShowActivity"
+            android:exported="false" />
+        <activity
             android:name=".Add_Content_Activity"
             android:exported="false" />
         <activity
@@ -23,14 +25,11 @@
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity
             android:name=".login_activity"
             android:exported="true"
-            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
