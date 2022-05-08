@@ -42,7 +42,6 @@ class Add_Content_Activity : AppCompatActivity() {
 
     private var videoUri: Uri? = null //uri of picked video
     private var imageUri: Uri? = null // uri of picked image
-
     private var title:String = "";
     private var description:String = "";
 

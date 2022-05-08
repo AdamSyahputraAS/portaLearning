@@ -15,8 +15,6 @@ import kotlinx.android.synthetic.main.item_main_activity.view.*
 class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val judul = view.labelJudulVideo
     val image = view.videoViewField
-
-
     val cardview = view.cardView
 //    val edit = view.btnEditUser
 
@@ -35,9 +33,9 @@ class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         }
         cardview.setOnClickListener({
-            val intent = Intent(it.context, VideoShowActivity::class.java)
-            intent.putExtra("dataVideo", adapter.data.get(position).videoUri)
-            it.context.startActivity(intent)
+            val intent = Intent(adapter.parent.context, VideoShowActivity::class.java)
+            intent.putExtra("Videos", adapter.data.get(position))
+            adapter.parent.context.startActivity(intent)
         })
 
 
