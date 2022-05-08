@@ -1,14 +1,23 @@
 package com.adl.portalearning.adapter
 
+import android.content.Intent
 import android.view.View
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
+import com.adl.portalearning.Add_Content_Activity
+import com.adl.portalearning.VideoShowActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import kotlinx.android.synthetic.main.item_main_activity.*
 import kotlinx.android.synthetic.main.item_main_activity.view.*
 
 class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val judul = view.labelJudulVideo
     val image = view.videoViewField
+
+
+    val cardview = view.cardView
 //    val edit = view.btnEditUser
 
 
@@ -25,6 +34,15 @@ class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
 
         }
+        cardview.setOnClickListener({
+            val intent = Intent(it.context, VideoShowActivity::class.java)
+            intent.putExtra("dataVideo", adapter.data.get(position).videoUri)
+            it.context.startActivity(intent)
+        })
+
+
+
+
 
 //        edit.setOnClickListener({
 //            val intent = Intent(adapter.parent.context, AddUser::class.java)

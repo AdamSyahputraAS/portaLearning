@@ -1,9 +1,12 @@
 package com.adl.portalearning
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.cardview.widget.CardView
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.adl.portalearning.adapter.VideoAdapter
 import com.adl.portalearning.model.ModelVideo
@@ -13,6 +16,8 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.item_main_activity.*
+import kotlinx.android.synthetic.main.item_main_activity.view.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -34,6 +39,7 @@ class MainActivity : AppCompatActivity() {
 
         //function call to load videos from firebase
         loadVideosFromFirebase()
+
 
         //handle click
         btnAddNewVideoButton.setOnClickListener({
