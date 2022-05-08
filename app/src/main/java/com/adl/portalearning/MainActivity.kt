@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.adl.portalearning.adapter.VideoAdapter
 import com.adl.portalearning.model.ModelVideo
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -20,9 +21,13 @@ class MainActivity : AppCompatActivity() {
     //adapter
     private lateinit var adapterVideo: VideoAdapter
 
+    private lateinit var auth: FirebaseAuth
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        auth = FirebaseAuth.getInstance()
 
         //actionbar title
         title = "Videos"
@@ -34,6 +39,13 @@ class MainActivity : AppCompatActivity() {
         btnAddNewVideoButton.setOnClickListener({
             startActivity(Intent(this, Add_Content_Activity::class.java))
         })
+
+        btnLogout.setOnClickListener {
+            auth.signOut()
+            Intent (this@MainActivity, login_activity::class.java).also {
+                it.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(it)}
+        }
 
     }
 
