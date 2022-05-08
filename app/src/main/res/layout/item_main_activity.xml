@@ -40,5 +40,4 @@
             android:text=" judul Video"/>
 
         </LinearLayout>
-    </LinearLayout>
 </androidx.cardview.widget.CardView>

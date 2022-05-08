@@ -3,8 +3,10 @@ package com.adl.portalearning
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.adl.portalearning.adapter.VideoAdapter
 import com.adl.portalearning.model.ModelVideo
-import com.adl.ujiancrud.adapter.VideoAdapter
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -16,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     //arraylist for videolist
     private lateinit var videoArrayList: ArrayList<ModelVideo>
     //adapter
-    private lateinit var adapterVideo:VideoAdapter
+    private lateinit var adapterVideo: VideoAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,7 +56,11 @@ class MainActivity : AppCompatActivity() {
                 //setup adapter
                 adapterVideo = VideoAdapter(this@MainActivity, videoArrayList)
                 //set adapter to recyclerview
-                mainVideoRecyclerView.adapter = adapterVideo
+//               mainVideoRecyclerView.adapter = adapterVideo
+                mainVideoRecyclerView.apply {
+                    layoutManager = LinearLayoutManager(this@MainActivity)
+                    adapter = adapterVideo
+                }
             }
 
             override fun onCancelled(error: DatabaseError) {

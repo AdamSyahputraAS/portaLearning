@@ -52,7 +52,6 @@ dependencies {
 
 }
 
-apply plugin : 'kotlin-kapt'
 
 dependencies {
 
