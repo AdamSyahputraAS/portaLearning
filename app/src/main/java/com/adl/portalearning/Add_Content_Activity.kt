@@ -18,6 +18,7 @@ import androidx.core.content.ContextCompat
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_add_content.*
+import kotlinx.android.synthetic.main.activity_splash_screen.*
 import java.util.jar.Manifest
 
 class Add_Content_Activity : AppCompatActivity() {
@@ -27,6 +28,8 @@ class Add_Content_Activity : AppCompatActivity() {
     //constant to pick video
     private val VIDEO_PICK_GALLERY_CODE = 100
     private val VIDEO_PICK_CAMERA_CODE = 101
+    //constant to pick image from gallery
+    private val IMAGE_PICK_GALLERY_CODE = 105
     //constant to request camera permission to record video from camera
     private val CAMERA_REQUEST_CODE = 102
 
@@ -38,6 +41,7 @@ class Add_Content_Activity : AppCompatActivity() {
     private lateinit var progressDialog:ProgressDialog
 
     private var videoUri: Uri? = null //uri of picked video
+    private var imageUri: Uri? = null // uri of picked image
 
     private var title:String = "";
     private var description:String = "";
@@ -93,8 +97,15 @@ class Add_Content_Activity : AppCompatActivity() {
             videoPickDialog()
         })
 
+        //handle click, pick thumbnail picture
+        btnUploadThumbailVideo.setOnClickListener({
+            imagePickDialog()
+        })
+
 
     }
+
+
 
     private fun uploadVideoFirebase() {
         //show progress
@@ -105,9 +116,32 @@ class Add_Content_Activity : AppCompatActivity() {
 
         //file path and name in firebase storage
         val filePathAndName = "Videos/video_$timestamp"
+        val imgFilePathAndName = "Image/img_$timestamp"
+
+        //downloaded uri
+        var uploadimageUri: Uri? = null // uri of picked image
 
         //storage refrence
         val storageReference = FirebaseStorage.getInstance().getReference(filePathAndName)
+        val storageReferenceImg = FirebaseStorage.getInstance().getReference(imgFilePathAndName)
+
+        //upload img first
+        storageReferenceImg.putFile(imageUri!!)
+            .addOnSuccessListener { taskSnapshot ->
+                //uploaded, get url or uploaded img
+                val uriTaskImg = taskSnapshot.storage.downloadUrl
+                while (!uriTaskImg.isSuccessful);
+                val downloadUri = uriTaskImg.result
+                if(uriTaskImg.isSuccessful){
+                    //set with uploaded uri
+                    uploadimageUri = downloadUri
+                }
+            }
+            .addOnFailureListener { e ->
+                //failed uploading
+                Toast.makeText(this, "${e.message}", Toast.LENGTH_SHORT).show()
+
+            }
         //upload video using uri of video storage
         storageReference.putFile(videoUri!!)
             .addOnSuccessListener { taskSnapshot ->
@@ -124,6 +158,7 @@ class Add_Content_Activity : AppCompatActivity() {
                     hashMap["title"] = "$title"
                     hashMap["description"] = "$description"
                     hashMap["videoUri"] = "$downloadUri"
+                    hashMap["imageUri"] = "$uploadimageUri"
 
                     //put the aboive info to db
                     val dbReference = FirebaseDatabase.getInstance().getReference("Videos")
@@ -132,6 +167,7 @@ class Add_Content_Activity : AppCompatActivity() {
                         .addOnSuccessListener {
                             //video info added succesfully
                             progressDialog.dismiss()
+                            finish()
                         }
                         .addOnFailureListener{ e ->
                             //video info failed added
@@ -149,6 +185,19 @@ class Add_Content_Activity : AppCompatActivity() {
 
             }
 
+    }
+
+
+    private fun imagePickDialog() {
+        //Image pick intent gallery
+        val intent = Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+
+        startActivityForResult(
+            Intent.createChooser(intent,"Choose Image"),
+            IMAGE_PICK_GALLERY_CODE
+        )
     }
 
     private fun videoPickDialog() {
@@ -222,6 +271,10 @@ class Add_Content_Activity : AppCompatActivity() {
         })
     }
 
+//    private fun setImageToView(){
+//        img
+//    }
+
     private fun videoPickGallery(){
         //video pick intent gallery
         val intent = Intent()
@@ -288,6 +341,9 @@ class Add_Content_Activity : AppCompatActivity() {
                     //video picked from gallery
                     videoUri = data!!.data
                     setVideoToView()
+                }else if(requestCode == IMAGE_PICK_GALLERY_CODE){
+                    imageUri = data!!.data
+                    imgViewField.setImageURI(imageUri)
                 }
         }
         else{
