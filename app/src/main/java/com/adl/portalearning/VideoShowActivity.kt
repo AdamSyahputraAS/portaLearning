@@ -1,5 +1,6 @@
 package com.adl.portalearning
 
+import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,43 +18,24 @@ class VideoShowActivity : AppCompatActivity() {
 
     private lateinit var data: ModelVideo
 
-    private var videoUri: Uri? = null
-    private lateinit var videoArrayList: ArrayList<ModelVideo>
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_video_show)
-//        playVideo.setOnClickListener({
-//            val intent = Intent(this@VideoShowActivity, webViewPlay::class.java)
-//            intent.putExtra("Videos",data)
-//            startActivity(intent)
-//        })
-        setVideoToView()
+        if(intent.hasExtra("Videos")) {
+            data = intent.getParcelableExtra("Videos")!!
+            //isUpdate = true
+            //setUIWithModel(data)
+            videoDescription.setText(data.title)
+            playVideo.setText(data.videoUri)
+
+        }
+        playVideo.setOnClickListener{
+            val intent = Intent(this@VideoShowActivity, webViewPlay::class.java)
+            intent.putExtra("Videos", data)
+            startActivity(intent)
+        }
     }
 
-
-
-    fun setVideoToView() {
-        //set the picked video to video view
-
-        val videoUrl:String? = data.videoUri
-
-
-        //video play controls
-        val mediaController = MediaController(this)
-        mediaController.setAnchorView(playVideo)
-        val videoUri = Uri.parse(videoUrl)
-
-        //set media controller
-        playVideo.setMediaController(mediaController)
-        //set video uri
-        playVideo.setVideoURI(videoUri)
-        playVideo.requestFocus()
-        playVideo.setOnPreparedListener({
-            //when video is ready, by default dont play automaticly
-            playVideo.start()
-        })
-    }
 
 }

@@ -11,8 +11,8 @@ class webViewPlay : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_web_view_play)
         val myWebView: WebView = findViewById(R.id.webview)
-        if (intent.hasExtra("data")) {
-            data = intent.getParcelableExtra("data")!!
+        if (intent.hasExtra("Videos")) {
+            data = intent.getParcelableExtra("Videos")!!
             myWebView.loadUrl(data.videoUri.toString())
         }
     }

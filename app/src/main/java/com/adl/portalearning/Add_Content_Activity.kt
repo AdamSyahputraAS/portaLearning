@@ -255,10 +255,10 @@ class Add_Content_Activity : AppCompatActivity() {
     private fun setVideoToView() {
         //set the picked video to video view
 
+
         //video play controls
         val mediaController = MediaController(this)
         mediaController.setAnchorView(videoView)
-
         //set media controller
         videoView.setMediaController(mediaController)
         //set video uri
