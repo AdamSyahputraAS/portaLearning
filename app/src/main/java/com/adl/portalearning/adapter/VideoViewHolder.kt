@@ -2,14 +2,10 @@ package com.adl.portalearning.adapter
 
 import android.content.Intent
 import android.view.View
-import androidx.cardview.widget.CardView
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
-import com.adl.portalearning.Add_Content_Activity
 import com.adl.portalearning.VideoShowActivity
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
-import kotlinx.android.synthetic.main.item_main_activity.*
 import kotlinx.android.synthetic.main.item_main_activity.view.*
 
 class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {

@@ -26,18 +26,13 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <ImageView
+            <VideoView
                 android:id="@+id/playVideo"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="0dp"
-                android:layout_marginBottom="0dp"
-                app:srcCompat="@drawable/common_google_signin_btn_icon_light" />
+                android:layout_height="200dp"/> />
 
             <TextView
                 android:id="@+id/txtJudul"
