@@ -26,8 +26,9 @@ class VideoShowActivity : AppCompatActivity() {
             data = intent.getParcelableExtra("Videos")!!
             //isUpdate = true
             //setUIWithModel(data)
-            videoDescription.setText(data.title)
+            videoDescription.setText(data.description)
             playVideo.setText(data.videoUri)
+            txtJudul.setText(data.title)
 
         }
         playVideo.setOnClickListener{

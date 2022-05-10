@@ -69,6 +69,15 @@
                 android:text=""
                 android:textColor="@color/black" />
 
+            <RatingBar
+                android:id="@+id/inputRating"
+                style="?android:attr/ratingBarStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:numStars="5" />
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
