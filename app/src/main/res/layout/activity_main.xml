@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
+    android:background="#86A3B8"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -19,26 +19,26 @@
             android:layout_height="wrap_content"
 
             android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
             android:text="logout" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-        <TextView
+        <EditText
             android:id="@+id/txtSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="TextView" />
+            android:ems="10"
+            android:inputType="textPersonName"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 
-        <Button
-            android:id="@+id/btnAddNewVideoButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:text="add" />
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="10dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            app:srcCompat="@android:drawable/ic_menu_search"
+            tools:ignore="SpeakableTextPresentCheck" />
 
     </LinearLayout>
 
@@ -46,7 +46,7 @@
         android:id="@+id/mainVideoRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_main_activity"/>
+        tools:listitem="@layout/item_main_activity" />
 
 
 </LinearLayout>

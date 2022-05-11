@@ -5,8 +5,9 @@
     android:id="@+id/cardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    app:cardBackgroundColor="#F1F5F8"
     app:cardCornerRadius="10dp"
-    app:cardElevation="5dp"
+    app:cardElevation="10dp"
     app:cardPreventCornerOverlap="true"
     app:cardUseCompatPadding="true"
     app:contentPadding="5dp">
@@ -14,9 +15,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="275dp"
-        android:layout_margin="10dp"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -25,30 +25,77 @@
 
             <ImageView
                 android:id="@+id/videoViewField"
-                android:layout_width="365dp"
-                android:layout_height="200dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:adjustViewBounds="true"
                 android:cropToPadding="true"
                 android:scaleType="centerInside"
                 tools:srcCompat="@tools:sample/avatars" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/labelJudulVideo"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:gravity="center"
-            android:text=" judul Video" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <RatingBar
-            android:id="@+id/ratingBar"
-            style="?android:attr/ratingBarStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_margin="10dp"
-            android:numStars="5" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/labelJudulVideo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:layout_margin="10dp"
+                    android:fontFamily="@font/alatsi"
+                    android:gravity="left"
+                    android:text=" judul Video" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_weight="1"
+                            android:fontFamily="@font/alatsi"
+                            android:text="Rating" />
+
+                        <RatingBar
+                            android:id="@+id/ratingBar"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginLeft="5dp"
+                            android:layout_weight="1"
+                            android:numStars="5" />
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/playButtons"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginLeft="100dp"
+                        android:layout_weight="1"
+                        app:srcCompat="@drawable/playbuttonn" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
 
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

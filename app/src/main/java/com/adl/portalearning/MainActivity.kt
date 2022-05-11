@@ -19,7 +19,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var videoArrayList: ArrayList<ModelVideo>
     //adapter
     private lateinit var adapterVideo: VideoAdapter
-
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,10 +33,10 @@ class MainActivity : AppCompatActivity() {
         loadVideosFromFirebase()
 
 
-        //handle click
-        btnAddNewVideoButton.setOnClickListener({
-            startActivity(Intent(this, Add_Content_Activity::class.java))
-        })
+//        handle click
+//        btnAddNewVideoButton.setOnClickListener({
+//            startActivity(Intent(this, Add_Content_Activity::class.java))
+//        })
 
         btnLogout.setOnClickListener {
             auth.signOut()

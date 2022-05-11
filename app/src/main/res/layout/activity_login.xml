@@ -55,7 +55,8 @@
                 android:layout_height="wrap_content"
                 android:ems="10"
                 android:inputType="textPersonName"
-                android:minHeight="48dp" />
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <TextView
                 android:id="@+id/textView4"
@@ -70,7 +71,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:inputType="textPersonName" />
+                android:inputType="textPersonName"
+                android:minHeight="48dp"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -88,7 +91,7 @@
                     android:background="#8DEAE9"
                     android:backgroundTint="#E1CFCF"
                     android:text="Login"
-                    android:textColor="#FFFFFF"
+                    android:textColor="#795548"
                     app:strokeColor="#BF7E7E"
                     tools:ignore="DuplicateSpeakableTextCheck" />
 

@@ -12,6 +12,7 @@ class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
     val judul = view.labelJudulVideo
     val image = view.videoViewField
     val cardview = view.cardView
+    val playButtons = view.playButtons
 //    val edit = view.btnEditUser
 
 
@@ -28,7 +29,7 @@ class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
 
         }
-        cardview.setOnClickListener({
+        playButtons.setOnClickListener({
             val intent = Intent(adapter.parent.context, VideoShowActivity::class.java)
             intent.putExtra("Videos", adapter.data.get(position))
             adapter.parent.context.startActivity(intent)
