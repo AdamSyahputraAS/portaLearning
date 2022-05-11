@@ -36,6 +36,10 @@ class VideoShowActivity : AppCompatActivity() {
             intent.putExtra("Videos", data)
             startActivity(intent)
         }
+        txtRating.setOnClickListener {
+            var dialog = RatingDialogFragment()
+            dialog.show(supportFragmentManager,"ratingDialog")
+        }
     }
 
 
