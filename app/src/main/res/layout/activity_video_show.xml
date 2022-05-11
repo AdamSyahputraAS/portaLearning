@@ -35,11 +35,21 @@
 
             ]]>
 
-            <TextView
-                android:id="@+id/playVideo"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="TextView" />
+<!--            <TextView-->
+<!--                android:id="@+id/playVideo"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="TextView" />-->
+
+            <ImageView
+                android:id="@+id/videoShowThumbnail"
+                android:layout_width="365dp"
+                android:layout_height="200dp"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="centerInside"
+                tools:srcCompat="@tools:sample/avatars"
+                android:layout_marginTop="20dp"/>
 
             <TextView
                 android:id="@+id/txtJudul"
