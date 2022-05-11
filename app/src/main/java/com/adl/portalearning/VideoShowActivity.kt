@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.MediaController
 import com.adl.portalearning.model.ModelVideo
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -27,14 +29,27 @@ class VideoShowActivity : AppCompatActivity() {
             //isUpdate = true
             //setUIWithModel(data)
             videoDescription.setText(data.description)
-            playVideo.setText(data.videoUri)
-            txtJudul.setText(data.title)
 
+            videoShowThumbnail?.let {
+                Glide.with(this@VideoShowActivity)
+                    .asBitmap()
+                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .skipMemoryCache(true)
+                    .load(data.imageUri)
+                    .into(it)
+
+
+            }
+            txtJudul.setText(data.title)
         }
-        playVideo.setOnClickListener{
+        videoShowThumbnail.setOnClickListener{
             val intent = Intent(this@VideoShowActivity, webViewPlay::class.java)
             intent.putExtra("Videos", data)
             startActivity(intent)
+        }
+        txtRating.setOnClickListener {
+            var dialog = RatingDialogFragment()
+            dialog.show(supportFragmentManager,"ratingDialog")
         }
     }
 

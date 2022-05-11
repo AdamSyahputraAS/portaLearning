@@ -4,30 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#86A3B8"
+    android:layout_margin="5dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".SearchActivity">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/btnLogout"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:layout_gravity="left"
-            android:layout_marginLeft="20dp"
-            android:text="logout" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-    </LinearLayout>
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -40,7 +20,7 @@
             android:orientation="horizontal">
 
             <EditText
-                android:id="@+id/txtSearch"
+                android:id="@+id/txtSearchActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -49,7 +29,7 @@
                 android:inputType="textPersonName" />
 
             <ImageButton
-                android:id="@+id/btnSearch"
+                android:id="@+id/btnSearchActivity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0.25"
@@ -58,11 +38,12 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mainVideoRecyclerView"
+        android:id="@+id/searchVideoRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:listitem="@layout/item_main_activity"/>
+        tools:listitem="@layout/item_main_activity" />
 
 
 </LinearLayout>

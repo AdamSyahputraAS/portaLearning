@@ -8,15 +8,14 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import kotlinx.android.synthetic.main.item_main_activity.view.*
 
-class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
+class SearchItemViewHolder (view: View): RecyclerView.ViewHolder(view) {
     val judul = view.labelJudulVideo
     val image = view.videoViewField
     val cardview = view.cardView
-    val playButtons = view.playButtons
 //    val edit = view.btnEditUser
 
 
-    fun bindData(adapter: VideoAdapter, position:Int){
+    fun bindData(adapter: SearchItemAdapter, position:Int){
 
         judul.setText(adapter.data.get(position).title)
         image?.let {
@@ -29,7 +28,7 @@ class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
 
         }
-        playButtons.setOnClickListener({
+        cardview.setOnClickListener({
             val intent = Intent(adapter.parent.context, VideoShowActivity::class.java)
             intent.putExtra("Videos", adapter.data.get(position))
             adapter.parent.context.startActivity(intent)
