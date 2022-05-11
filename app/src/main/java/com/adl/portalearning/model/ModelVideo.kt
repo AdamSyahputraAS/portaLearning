@@ -12,6 +12,16 @@ data class ModelVideo (
     var description:String? = null,
     var timestamp:String? = null,
     var videoUri:String? = null,
-    var imageUri:String? = null
+    var imageUri:String? = null,
+    var rating:String? = null,
+    var uid:String? = null
 
 ): Parcelable
+
+@Parcelize
+data class Rating(
+    var id:String,
+    var userId:String,
+    var videoId:String,
+    var rateVal:Float
+):Parcelable

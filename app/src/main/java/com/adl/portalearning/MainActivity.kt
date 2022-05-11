@@ -7,10 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.adl.portalearning.adapter.VideoAdapter
 import com.adl.portalearning.model.ModelVideo
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +22,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
         auth = FirebaseAuth.getInstance()
 
         //actionbar title
@@ -33,6 +32,9 @@ class MainActivity : AppCompatActivity() {
         //function call to load videos from firebase
         loadVideosFromFirebase()
 
+        btnSearch.setOnClickListener({
+            startActivity(Intent(this, SearchActivity::class.java))
+        })
 
         //handle click
         btnAddNewVideoButton.setOnClickListener({

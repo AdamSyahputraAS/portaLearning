@@ -15,7 +15,7 @@ class VideoViewHolder(view: View): RecyclerView.ViewHolder(view) {
 //    val edit = view.btnEditUser
 
 
-    fun bindData(adapter:VideoAdapter, position:Int){
+    fun bindData(adapter: VideoAdapter, position:Int){
 
         judul.setText(adapter.data.get(position).title)
         image?.let {
